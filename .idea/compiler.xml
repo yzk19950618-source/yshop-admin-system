@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Annotation profile for yshop" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-configuration-processor/3.2.2/spring-boot-configuration-processor-3.2.2.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
+        </processorPath>
+        <module name="yshop-spring-boot-starter-job" />
+        <module name="yshop-spring-boot-starter-excel" />
+        <module name="yshop-module-message-api" />
+        <module name="yshop-spring-boot-starter-biz-data-permission" />
+        <module name="yshop-module-infra-biz" />
+        <module name="yshop-module-product-biz" />
+        <module name="yshop-module-infra-api" />
+        <module name="yshop-module-product-api" />
+        <module name="yshop-server" />
+        <module name="yshop-spring-boot-starter-mq" />
+        <module name="yshop-spring-boot-starter-websocket" />
+        <module name="yshop-spring-boot-starter-security" />
+        <module name="yshop-module-message-biz" />
+        <module name="yshop-spring-boot-starter-web" />
+        <module name="yshop-module-shop-api" />
+        <module name="yshop-spring-boot-starter-biz-tenant" />
+        <module name="yshop-module-system-biz" />
+        <module name="yshop-module-mp-api" />
+        <module name="yshop-module-pay-biz" />
+        <module name="yshop-module-shop-biz" />
+        <module name="yshop-module-system-api" />
+        <module name="yshop-spring-boot-starter-biz-ip" />
+        <module name="yshop-spring-boot-starter-monitor" />
+        <module name="yshop-module-coupon-api" />
+        <module name="yshop-module-express-api" />
+        <module name="yshop-module-score-biz" />
+        <module name="yshop-spring-boot-starter-mybatis" />
+        <module name="yshop-module-order-api" />
+        <module name="yshop-module-store-api" />
+        <module name="yshop-module-coupon-biz" />
+        <module name="yshop-module-member-biz" />
+        <module name="yshop-spring-boot-starter-redis" />
+        <module name="yshop-module-order-biz" />
+        <module name="yshop-common" />
+        <module name="yshop-module-express-biz" />
+        <module name="yshop-module-score-api" />
+        <module name="yshop-spring-boot-starter-test" />
+        <module name="yshop-spring-boot-starter-protection" />
+        <module name="yshop-module-member-api" />
+        <module name="yshop-module-pay-api" />
+        <module name="yshop-module-store-biz" />
+        <module name="yshop-module-mp-biz" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="yshop-common" options="-parameters" />
+      <module name="yshop-module-coupon-api" options="-parameters" />
+      <module name="yshop-module-coupon-biz" options="-parameters" />
+      <module name="yshop-module-express-api" options="-parameters" />
+      <module name="yshop-module-express-biz" options="-parameters" />
+      <module name="yshop-module-infra-api" options="-parameters" />
+      <module name="yshop-module-infra-biz" options="-parameters" />
+      <module name="yshop-module-member-api" options="-parameters" />
+      <module name="yshop-module-member-biz" options="-parameters" />
+      <module name="yshop-module-message-api" options="-parameters" />
+      <module name="yshop-module-message-biz" options="-parameters" />
+      <module name="yshop-module-mp-api" options="-parameters" />
+      <module name="yshop-module-mp-biz" options="-parameters" />
+      <module name="yshop-module-order-api" options="-parameters" />
+      <module name="yshop-module-order-biz" options="-parameters" />
+      <module name="yshop-module-pay-api" options="-parameters" />
+      <module name="yshop-module-pay-biz" options="-parameters" />
+      <module name="yshop-module-product-api" options="-parameters" />
+      <module name="yshop-module-product-biz" options="-parameters" />
+      <module name="yshop-module-score-api" options="-parameters" />
+      <module name="yshop-module-score-biz" options="-parameters" />
+      <module name="yshop-module-shop-api" options="-parameters" />
+      <module name="yshop-module-shop-biz" options="-parameters" />
+      <module name="yshop-module-store-api" options="-parameters" />
+      <module name="yshop-module-store-biz" options="-parameters" />
+      <module name="yshop-module-system-api" options="-parameters" />
+      <module name="yshop-module-system-biz" options="-parameters" />
+      <module name="yshop-server" options="-parameters" />
+      <module name="yshop-spring-boot-starter-biz-data-permission" options="-parameters" />
+      <module name="yshop-spring-boot-starter-biz-ip" options="-parameters" />
+      <module name="yshop-spring-boot-starter-biz-tenant" options="-parameters" />
+      <module name="yshop-spring-boot-starter-excel" options="-parameters" />
+      <module name="yshop-spring-boot-starter-job" options="-parameters" />
+      <module name="yshop-spring-boot-starter-monitor" options="-parameters" />
+      <module name="yshop-spring-boot-starter-mq" options="-parameters" />
+      <module name="yshop-spring-boot-starter-mybatis" options="-parameters" />
+      <module name="yshop-spring-boot-starter-protection" options="-parameters" />
+      <module name="yshop-spring-boot-starter-redis" options="-parameters" />
+      <module name="yshop-spring-boot-starter-security" options="-parameters" />
+      <module name="yshop-spring-boot-starter-test" options="-parameters" />
+      <module name="yshop-spring-boot-starter-web" options="-parameters" />
+      <module name="yshop-spring-boot-starter-websocket" options="-parameters" />
+    </option>
+  </component>
+</project>
