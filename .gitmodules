@@ -1,0 +1,6 @@
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:yzk19950618-source/yshop-drink-vue3.git
+[submodule "backend"]
+	path = backend
+	url = git@github.com:yzk19950618-source/yshop-drink-boot3.git
