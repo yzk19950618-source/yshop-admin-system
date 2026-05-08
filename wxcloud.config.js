@@ -20,6 +20,9 @@
  * 推荐：在「创建版本」中显式选择 Dockerfile 构建，构建目录为仓库根「.」，Dockerfile 填 ./Dockerfile，
  * 并将含该文件的提交推送到远端后再发版。
  *
+ * 子模块：若构建日志提示 backend 无 pom.xml 或「transferring context」极小，请在云托管 Git 中开启「检出子模块」。
+ * Dockerfile 只使用上下文中的 backend/，不在镜像内 clone，与 .gitmodules 锁定提交一致。
+ *
  * 兼容：若控制台只能使用 Buildpack / 自动检测，本仓库已在根目录增加 pom.xml，将子模块 backend
  * 作为 Maven 模块接入，以便 Java Maven buildpack 能在根目录发现 pom.xml（仍需开启 Git Submodule，
  * 否则 backend 目录为空，Maven 仍会失败）。
@@ -30,11 +33,13 @@
  * 二、部署模式说明（为何使用 type: "custom"）
  * =============================================================================
  * - 官方「混合部署」type: "universal" 开箱仅支持 Next.js / Nuxt，不适用 Vue 3 + Vite。
- * - 前后端分离 + 静态资源上 CDN、容器跑后端时，对 Vue + Spring Boot 请使用 type: "custom"：
- *   - custom.staticTarget：本地构建产物目录 → 静态托管远端路径（空字符串表示站点根）。
- *   - custom.runTarget：云托管「代码包」路径，必须为 **zip**（需由 CI/本地脚本在 wxcloud deploy 前生成）。
- * - type: "run" 才走目录下 Dockerfile 构建镜像；本文件采用 custom + zip，不直接引用 backend/Dockerfile。
- *   Dockerfile 仍可用于本地或 CI 内构建、打 zip 的参考。
+ * - 使用 @wxcloud/cli 执行「wxcloud deploy」且 type 为 custom 时：
+ *   - custom.staticTarget：本地已构建的前端目录 → 静态托管路径（键目录须已存在，例如 frontend/dist-prod）。
+ *   - custom.runTarget：指向仓库根下**已存在的**后端 zip 路径；CLI **不会**根据 Dockerfile 自动生成该 zip。
+ *     若从未执行打 zip 步骤就 deploy，会出现「找不到包 / 上传失败」等与「打包不到」等效的问题。
+ * - 若你**仅在微信云托管控制台**用「Git + Dockerfile」发版后端镜像：一般由平台按 Dockerfile 构建镜像，
+ *   此流程**不依赖**本文件中的 runTarget zip；此时 runTarget 主要在你改用「wxcloud deploy 自定义模式」时才必须准备。
+ * - 根目录 Dockerfile 与 backend/Dockerfile 用于容器镜像构建；与 custom.runTarget 的 zip 是两条不同产物链路，勿混为一谈。
  *
  * =============================================================================
  * 三、推荐执行顺序（生产 / prod）

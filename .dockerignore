@@ -1,9 +1,8 @@
 # 缩小发往云托管构建机的上下文（根目录 docker build 时）
+# 勿写 **/.git：子模块 backend/.git 为 gitfile，误配可能影响部分客户端对 backend 的打包上传
 .git
-**/.git
 frontend/node_modules
-frontend/dist
-frontend/dist-prod
+# 勿忽略 dist*：根 Dockerfile 要把前端产物 COPY 进镜像（见 FRONTEND_STATIC_DIR）
 **/.pnpm-store
 **/target
 *.md
