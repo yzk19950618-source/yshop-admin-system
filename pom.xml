@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+      仅用于「聚合仓库根」场景：微信云托管若走 Buildpack / 源码构建，会在根目录查找 pom.xml；
+      本子模块聚合 POM 将 backend 指向 Git Submodule，检出后 Maven 可在根执行 reactor 构建。
+
+      若已改为 Dockerfile 构建（推荐，见根目录 Dockerfile），本文件可保留或删除，不影响镜像构建。
+    -->
+    <groupId>co.yixiang.boot</groupId>
+    <artifactId>yshop-admin-system-root</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>yshop-admin-system</name>
+
+    <modules>
+        <module>backend</module>
+    </modules>
+</project>

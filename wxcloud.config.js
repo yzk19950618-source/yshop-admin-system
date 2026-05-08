@@ -14,11 +14,17 @@
  * =============================================================================
  * 一.1、云托管「Dockerfile 构建」与 Buildpack 失败说明
  * =============================================================================
- * 若创建版本时使用默认 Buildpack 检测，仓库根下无 pom.xml / package.json，会出现：
- *   No buildpacks participating / failed to detect
- * 请在服务「创建版本」中选择 Dockerfile 构建，构建目录为仓库根「.」，Dockerfile 路径为根目录
- * ./Dockerfile（本仓库已提供：从子目录 backend/ COPY 后执行 Maven，与 backend/Dockerfile 等价）。
- * 同时必须在云托管 Git 配置中开启「子模块 Submodule」检出，否则 backend/ 为空，构建仍会失败。
+ * 判断方式：构建日志若出现「===> DETECTING」「buildpacksio/lifecycle」，说明当前走的是
+ * Buildpack 源码构建，并未执行根目录 Dockerfile 的「FROM ...」步骤。
+ *
+ * 推荐：在「创建版本」中显式选择 Dockerfile 构建，构建目录为仓库根「.」，Dockerfile 填 ./Dockerfile，
+ * 并将含该文件的提交推送到远端后再发版。
+ *
+ * 兼容：若控制台只能使用 Buildpack / 自动检测，本仓库已在根目录增加 pom.xml，将子模块 backend
+ * 作为 Maven 模块接入，以便 Java Maven buildpack 能在根目录发现 pom.xml（仍需开启 Git Submodule，
+ * 否则 backend 目录为空，Maven 仍会失败）。
+ *
+ * 原错误「No buildpacks participating」多因根目录无 pom.xml、无 package.json；勿仅依赖子目录内文件。
  *
  * =============================================================================
  * 二、部署模式说明（为何使用 type: "custom"）
