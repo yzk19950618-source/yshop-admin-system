@@ -1,0 +1,11 @@
+# 缩小发往云托管构建机的上下文（根目录 docker build 时）
+.git
+**/.git
+frontend/node_modules
+frontend/dist
+frontend/dist-prod
+**/.pnpm-store
+**/target
+*.md
+.idea
+.vscode
